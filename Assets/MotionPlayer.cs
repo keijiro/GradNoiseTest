@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class Motion : MonoBehaviour
+public sealed class MotionPlayer : MonoBehaviour
 {
     public enum NoiseType { Perlin, Sine }
 
