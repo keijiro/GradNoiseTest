@@ -3,6 +3,13 @@ using Unity.Mathematics;
 
 public static class Noise
 {
+    public enum Method { Perlin, Sine }
+
+    public static float Func(Method method, float x)
+      => method switch { Method.Perlin => Perlin(x),
+                         Method.Sine => Sine(x),
+                         _ => 0 };
+
     public static float Perlin(float x)
     {
         var X = (int)x & 0xff;
