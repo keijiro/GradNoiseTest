@@ -8,7 +8,7 @@ public sealed class PerlinNoise : MonoBehaviour
     void Start()
       => GetComponent<CurveRenderer>().SetValues
            (Enumerable.Range(0, 2048).
-            Select(i => Noise(i * 0.01f)).ToArray());
+            Select(i => Noise(i * 0.02f)).ToArray());
 
     static float Noise(float x)
     {
