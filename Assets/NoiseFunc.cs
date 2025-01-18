@@ -1,16 +1,9 @@
 using UnityEngine;
 using Unity.Mathematics;
-using System;
-using System.Linq;
 
-public sealed class PerlinNoise : MonoBehaviour
+public static class Noise
 {
-    void Start()
-      => GetComponent<CurveRenderer>().SetValues
-           (Enumerable.Range(0, 2048).
-            Select(i => Noise(i * 0.02f)).ToArray());
-
-    static float Noise(float x)
+    public static float Perlin(float x)
     {
         var X = (int)x & 0xff;
         x -= X;
@@ -21,9 +14,6 @@ public sealed class PerlinNoise : MonoBehaviour
 
     static float Fade(float t)
       => t * t * t * (t * (t * 6 - 15) + 10);
-
-    static float Lerp(float t, float a, float b)
-      => a + t * (b - a);
 
     static float Grad(int hash, float x)
       => (hash & 1) == 0 ? x : -x;
@@ -43,4 +33,9 @@ public sealed class PerlinNoise : MonoBehaviour
         107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,
         150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,
         61,156,180,151 };
+
+    public static float Sine(float x)
+      => 0.15f * (-3.2f * math.sin(-1.3f * x)
+                  -1.2f * math.sin(-1.8f * x * math.E)
+                  +1.9f * math.sin( 0.7f * x * math.PI));
 }

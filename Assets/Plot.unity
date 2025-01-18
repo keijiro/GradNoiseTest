@@ -129,9 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 386507426}
   - component: {fileID: 386507425}
-  - component: {fileID: 386507427}
   m_Layer: 0
-  m_Name: Line 1
+  m_Name: Perlin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277a0baf5d274818832d4aaa2a624f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
+  _range: 40
+  _resolution: 1024
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
 --- !u!4 &386507426
 Transform:
@@ -159,24 +161,12 @@ Transform:
   m_GameObject: {fileID: 386507424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8888889, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1.7777778, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &386507427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386507424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc59ca86b42f34b14820b3bce4c0946a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1411473415
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,26 +305,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1934760044}
   - component: {fileID: 1934760043}
-  - component: {fileID: 1934760042}
   m_Layer: 0
-  m_Name: Line 2
+  m_Name: Sine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1934760042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934760041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 695a097ecec154c2faf4f9b5c28a5590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1934760043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277a0baf5d274818832d4aaa2a624f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _range: 50
+  _resolution: 1024
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
 --- !u!4 &1934760044
 Transform:
@@ -357,7 +337,7 @@ Transform:
   m_GameObject: {fileID: 1934760041}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8888889, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1.7777778, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
