@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-public sealed class CurveRenderer : MonoBehaviour
+public sealed class Plot : MonoBehaviour
 {
     [SerializeField] Noise.Method _method = Noise.Method.Perlin;
     [SerializeField] float _range = 10;
