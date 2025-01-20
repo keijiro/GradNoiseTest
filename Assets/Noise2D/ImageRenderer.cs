@@ -10,11 +10,12 @@ public sealed class ImageRenderer : MonoBehaviour
 {
     #region Public properties
 
-    public enum Method { ClassicPerlin, Gradient360 }
+    [field:SerializeField] public NoiseGen.Method Method
+      { get; set; } = NoiseGen.Method.Perlin;
 
-    [field:SerializeField] public Method NoiseType { get; set; } = Method.ClassicPerlin;
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
+    [field:SerializeField] public int Octaves { get; set; } = 1;
 
     #endregion
 
@@ -30,12 +31,6 @@ public sealed class ImageRenderer : MonoBehaviour
     NativeArray<byte> _array;
     Texture2D _texture;
     Material _material;
-
-    float GetNoiseAt(float2 p)
-      => NoiseType switch
-         { Method.ClassicPerlin => ClassicPerlin.GetAt(p),
-           Method.Gradient360 => Gradient360.GetAt(p),
-           _ => 0 };
 
     void UpdateTexture()
     {
@@ -53,8 +48,8 @@ public sealed class ImageRenderer : MonoBehaviour
             for (var xi = 0; xi < Resolution; xi++, offs++)
             {
                 var x = Frequency * xi / Resolution;
-                var val = GetNoiseAt(math.float2(x, y));
-                _array[offs] = (byte)(255 * (val + 1) / 2);
+                var val = NoiseGen.Fractal(Method, math.float2(x, y), Octaves);
+                _array[offs] = (byte)(255 * math.saturate((val + 1) / 2));
             }
         }
 

@@ -1,10 +1,11 @@
 using UnityEngine;
+using Unity.Mathematics;
 
 namespace Noise2D {
 
 public static class ClassicPerlin
 {
-    public static float GetAt(Vector2 coord)
+    public static float GetAt(float2 coord)
       => GetAt(coord.x, coord.y);
 
     public static float GetAt(float x, float y)

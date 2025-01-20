@@ -7,33 +7,29 @@ public static class Gradient360
 {
     public static float GetAt(float2 coord)
     {
-        coord += 1000;
-        var grid = (uint2)coord;
-        var uv = coord - grid;
-        var grad1 = GradAt(grid + math.uint2(0, 0));
-        var grad2 = GradAt(grid + math.uint2(1, 0));
-        var grad3 = GradAt(grid + math.uint2(0, 1));
-        var grad4 = GradAt(grid + math.uint2(1, 1));
-        var g1 = math.dot(grad1, uv);
-        var g2 = math.dot(grad2, math.float2(uv.x - 1,     uv.y));
-        var g3 = math.dot(grad3, math.float2(    uv.x, uv.y - 1));
-        var g4 = math.dot(grad4, math.float2(uv.x - 1, uv.y - 1));
-        var fade = uv * uv * uv * (uv * (uv * 6 - 15) + 10);
-        return math.lerp(math.lerp(g1, g2, fade.x),
-                         math.lerp(g3, g4, fade.x), fade.y);
+        var i = (uint2)(coord + 1000);
+        var uv = math.frac(coord).xyxy - math.float4(0, 0, 1, 1);
+        var g1 = math.dot(Grad(i + math.uint2(0, 0)), uv.xy);
+        var g2 = math.dot(Grad(i + math.uint2(1, 0)), uv.zy);
+        var g3 = math.dot(Grad(i + math.uint2(0, 1)), uv.xw);
+        var g4 = math.dot(Grad(i + math.uint2(1, 1)), uv.zw);
+        return BiLerp(g1, g2, g3, g4, SmootherStep01(uv.xy));
     }
 
-    static float2 GradAt(uint2 i2)
-    {
-        var theta = HashAt(i2) * math.PI * 2;
-        return math.float2(math.cos(theta), math.sin(theta));
-    }
+    static float BiLerp(float v1, float v2, float v3, float v4, float2 p)
+      => math.lerp(math.lerp(v1, v2, p.x), math.lerp(v3, v4, p.x), p.y);
 
-    static float HashAt(uint2 i2)
-    {
-        var n = WangHash(i2.x + (i2.y << 16));
-        return math.asfloat(0x3f800000 | (n >> 9)) - 1.0f;
-    }
+    static float2 SmootherStep01(float2 t)
+      => t * t * t * (t * (t * 6 - 15) + 10);
+
+    static float2 SinCos(float t)
+      => math.float2(math.sin(t), math.cos(t));
+
+    static float2 Grad(uint2 i2)
+      => SinCos(Rand01(i2) * math.PI * 2);
+
+    static float Rand01(uint2 i2)
+      => math.asfloat(0x3f800000 | (WangHash(i2.x + (i2.y << 16)) >> 9)) - 1;
 
     static uint WangHash(uint n)
     {
