@@ -1,22 +1,17 @@
 using UnityEngine;
 using Unity.Mathematics;
 
-public static class Noise
+namespace Noise1D {
+
+public static class Perlin1D
 {
-    public enum Method { Perlin, Sine }
-
-    public static float Func(Method method, float x)
-      => method switch { Method.Perlin => Perlin(x),
-                         Method.Sine => Sine(x),
-                         _ => 0 };
-
-    public static float Perlin(float x)
+    public static float GetAt(float x)
     {
         var X = (int)x & 0xff;
         x -= X;
         var g0 = Grad(perm[X    ], x    );
         var g1 = Grad(perm[X + 1], x - 1);
-        return math.lerp(g0, g1, Fade(x)) * 2;
+        return math.lerp(g0, g1, Fade(x));
     }
 
     static float Fade(float t)
@@ -40,9 +35,6 @@ public static class Noise
         107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,
         150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,
         61,156,180,151 };
-
-    public static float Sine(float x)
-      => 0.15f * (-3.2f * math.sin(-1.3f * x)
-                  -1.2f * math.sin(-1.8f * x * math.E)
-                  +1.9f * math.sin( 0.7f * x * math.PI));
 }
+
+} // namespace Noise2D

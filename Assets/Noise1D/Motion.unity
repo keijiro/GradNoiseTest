@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f4665860a2041ed9b20860fe95eb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frequency: 0.6
-  _method: 0
+  <NoiseType>k__BackingField: 0
+  <Frequency>k__BackingField: 1
 --- !u!1 &138294032
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,8 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f4665860a2041ed9b20860fe95eb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frequency: 0.8
-  _method: 1
+  <NoiseType>k__BackingField: 1
+  <Frequency>k__BackingField: 1
 --- !u!1 &1797377007
 GameObject:
   m_ObjectHideFlags: 0

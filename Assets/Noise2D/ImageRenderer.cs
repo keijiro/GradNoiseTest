@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 namespace Noise2D {
 
 [ExecuteInEditMode]
-public sealed class TextureRenderer : MonoBehaviour
+public sealed class ImageRenderer : MonoBehaviour
 {
     #region Public properties
 
@@ -31,10 +31,10 @@ public sealed class TextureRenderer : MonoBehaviour
     Texture2D _texture;
     Material _material;
 
-    float GetNoiseAt(float x, float y)
+    float GetNoiseAt(float2 p)
       => NoiseType switch
-         { Method.ClassicPerlin => ClassicPerlin.GetAt(x, y),
-           Method.Gradient360 => Gradient360.GetAt(math.float2(x, y)),
+         { Method.ClassicPerlin => ClassicPerlin.GetAt(p),
+           Method.Gradient360 => Gradient360.GetAt(p),
            _ => 0 };
 
     void UpdateTexture()
@@ -53,7 +53,7 @@ public sealed class TextureRenderer : MonoBehaviour
             for (var xi = 0; xi < Resolution; xi++, offs++)
             {
                 var x = Frequency * xi / Resolution;
-                var val = GetNoiseAt(x, y);
+                var val = GetNoiseAt(math.float2(x, y));
                 _array[offs] = (byte)(255 * (val + 1) / 2);
             }
         }

@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 386507426}
   - component: {fileID: 386507425}
   m_Layer: 0
-  m_Name: Perlin
+  m_Name: Curve (Perlin 1D)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277a0baf5d274818832d4aaa2a624f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _method: 0
-  _range: 40
-  _resolution: 1024
+  <NoiseType>k__BackingField: 0
+  <Resolution>k__BackingField: 1024
+  <Frequency>k__BackingField: 40
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
 --- !u!4 &386507426
 Transform:
@@ -162,7 +162,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
-  m_LocalScale: {x: 1.7777778, y: 0.1, z: 1}
+  m_LocalScale: {x: 1.7777778, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -176,31 +176,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 392473929}
-  - component: {fileID: 392473928}
+  - component: {fileID: 392473930}
   m_Layer: 0
-  m_Name: SIne
+  m_Name: Gradient (Gradient 360)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &392473928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392473927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aad00d71bacb4ce8bd6424ad94c2868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _method: 1
-  _range: 50
-  _resolution: 1024
-  _shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &392473929
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +199,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &392473930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392473927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad00d71bacb4ce8bd6424ad94c2868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NoiseType>k__BackingField: 1
+  <Resolution>k__BackingField: 1024
+  <Frequency>k__BackingField: 40
+  _shader: {fileID: -6465566751694194690, guid: 115be73a62f3c495db947fa77de64e5d, type: 3}
+  _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1195041572
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,31 +225,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195041574}
-  - component: {fileID: 1195041573}
+  - component: {fileID: 1195041575}
   m_Layer: 0
-  m_Name: Perlin
+  m_Name: Gradient (Perlin 1D)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1195041573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195041572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aad00d71bacb4ce8bd6424ad94c2868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _method: 0
-  _range: 40
-  _resolution: 1024
-  _shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1195041574
 Transform:
   m_ObjectHideFlags: 0
@@ -265,6 +248,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195041575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195041572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad00d71bacb4ce8bd6424ad94c2868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NoiseType>k__BackingField: 0
+  <Resolution>k__BackingField: 1024
+  <Frequency>k__BackingField: 40
+  _shader: {fileID: -6465566751694194690, guid: 115be73a62f3c495db947fa77de64e5d, type: 3}
+  _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1411473415
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 1934760044}
   - component: {fileID: 1934760043}
   m_Layer: 0
-  m_Name: Sine
+  m_Name: Curve (Gradient 360)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,9 +422,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277a0baf5d274818832d4aaa2a624f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _method: 1
-  _range: 50
-  _resolution: 1024
+  <NoiseType>k__BackingField: 1
+  <Resolution>k__BackingField: 4096
+  <Frequency>k__BackingField: 40
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
 --- !u!4 &1934760044
 Transform:
@@ -436,7 +436,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.1, z: 0}
-  m_LocalScale: {x: 1.7777778, y: 0.1, z: 1}
+  m_LocalScale: {x: 1.7777778, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
