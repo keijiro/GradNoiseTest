@@ -163,8 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968e2eb43043f40008591e91534825c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoiseType>k__BackingField: 1
   <Resolution>k__BackingField: 512
-  <Frequency>k__BackingField: 10
+  <Frequency>k__BackingField: 20
   _shader: {fileID: -6465566751694194690, guid: 115be73a62f3c495db947fa77de64e5d, type: 3}
   _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1308331083

@@ -1,4 +1,5 @@
 using Unity.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,6 +10,9 @@ public sealed class TextureRenderer : MonoBehaviour
 {
     #region Public properties
 
+    public enum Method { ClassicPerlin, Gradient360 }
+
+    [field:SerializeField] public Method NoiseType { get; set; } = Method.ClassicPerlin;
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
 
@@ -27,6 +31,12 @@ public sealed class TextureRenderer : MonoBehaviour
     Texture2D _texture;
     Material _material;
 
+    float GetNoiseAt(float x, float y)
+      => NoiseType switch
+         { Method.ClassicPerlin => ClassicPerlin.GetAt(x, y),
+           Method.Gradient360 => Gradient360.GetAt(math.float2(x, y)),
+           _ => 0 };
+
     void UpdateTexture()
     {
         if (!_array.IsCreated || _array.Length != Resolution * Resolution)
@@ -43,7 +53,7 @@ public sealed class TextureRenderer : MonoBehaviour
             for (var xi = 0; xi < Resolution; xi++, offs++)
             {
                 var x = Frequency * xi / Resolution;
-                var val = Noise2D.Perlin.GetAt(x, y);
+                var val = GetNoiseAt(x, y);
                 _array[offs] = (byte)(255 * (val + 1) / 2);
             }
         }

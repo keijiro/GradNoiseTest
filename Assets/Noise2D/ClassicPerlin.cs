@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Noise2D {
 
-public static class Perlin
+public static class ClassicPerlin
 {
     public static float GetAt(Vector2 coord)
       => GetAt(coord.x, coord.y);
