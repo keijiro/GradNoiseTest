@@ -16,6 +16,7 @@ public sealed class GradientRenderer : MonoBehaviour
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
     [field:SerializeField] public int Octaves { get; set; } = 1;
+    [field:SerializeField] public float Amplitude { get; set; } = 1;
 
     #endregion
 
@@ -46,7 +47,7 @@ public sealed class GradientRenderer : MonoBehaviour
         {
             var x = (float)i / Resolution - 0.5f;
             var y = NoiseGen.Fractal(Method, (x + 0.5f) * Frequency, Octaves);
-            _array[i] = (byte)(255 * math.saturate((y + 1) / 2));
+            _array[i] = (byte)(255 * math.saturate((y * Amplitude + 1) / 2));
         }
 
         if (_texture == null || _texture.width != Resolution)

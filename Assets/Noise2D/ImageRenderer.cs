@@ -16,6 +16,7 @@ public sealed class ImageRenderer : MonoBehaviour
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
     [field:SerializeField] public int Octaves { get; set; } = 1;
+    [field:SerializeField] public float Amplitude { get; set; } = 1;
 
     #endregion
 
@@ -49,7 +50,7 @@ public sealed class ImageRenderer : MonoBehaviour
             {
                 var x = Frequency * xi / Resolution;
                 var val = NoiseGen.Fractal(Method, math.float2(x, y), Octaves);
-                _array[offs] = (byte)(255 * math.saturate((val + 1) / 2));
+                _array[offs] = (byte)(255 * math.saturate((val * Amplitude + 1) / 2));
             }
         }
 

@@ -165,8 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Method>k__BackingField: 0
-  <Frequency>k__BackingField: 0.5
+  <Frequency>k__BackingField: 1
   <Octaves>k__BackingField: 4
+  <Amplitude>k__BackingField: 0.71
 --- !u!1 &138294032
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,8 +613,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Method>k__BackingField: 1
-  <Frequency>k__BackingField: 0.5
+  <Frequency>k__BackingField: 1
   <Octaves>k__BackingField: 4
+  <Amplitude>k__BackingField: 1
 --- !u!1 &1797377007
 GameObject:
   m_ObjectHideFlags: 0

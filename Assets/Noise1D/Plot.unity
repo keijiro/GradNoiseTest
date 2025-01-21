@@ -152,6 +152,7 @@ MonoBehaviour:
   <Resolution>k__BackingField: 1024
   <Frequency>k__BackingField: 40
   <Octaves>k__BackingField: 4
+  <Amplitude>k__BackingField: 0.71
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
 --- !u!4 &386507426
 Transform:
@@ -216,6 +217,7 @@ MonoBehaviour:
   <Resolution>k__BackingField: 1024
   <Frequency>k__BackingField: 20
   <Octaves>k__BackingField: 4
+  <Amplitude>k__BackingField: 1
   _shader: {fileID: -6465566751694194690, guid: 115be73a62f3c495db947fa77de64e5d, type: 3}
   _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1195041572
@@ -266,6 +268,7 @@ MonoBehaviour:
   <Resolution>k__BackingField: 1024
   <Frequency>k__BackingField: 20
   <Octaves>k__BackingField: 4
+  <Amplitude>k__BackingField: 0.71
   _shader: {fileID: -6465566751694194690, guid: 115be73a62f3c495db947fa77de64e5d, type: 3}
   _mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1411473415
@@ -429,6 +432,7 @@ MonoBehaviour:
   <Resolution>k__BackingField: 4096
   <Frequency>k__BackingField: 40
   <Octaves>k__BackingField: 4
+  <Amplitude>k__BackingField: 1
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
 --- !u!4 &1934760044
 Transform:

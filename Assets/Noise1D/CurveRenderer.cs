@@ -16,6 +16,7 @@ public sealed class CurveRenderer : MonoBehaviour
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
     [field:SerializeField] public int Octaves { get; set; } = 1;
+    [field:SerializeField] public float Amplitude { get; set; } = 1;
 
     #endregion
 
@@ -51,7 +52,7 @@ public sealed class CurveRenderer : MonoBehaviour
             var x = (float)i / Resolution - 0.5f;
             var y = NoiseGen.Fractal(Method, (x + 0.5f) * Frequency, Octaves);
             _array.i[i] = i;
-            _array.p[i] = math.float3(x, y, 0);
+            _array.p[i] = math.float3(x, y * Amplitude, 0);
         }
 
         if (_mesh == null || _mesh.vertexCount != Resolution)
