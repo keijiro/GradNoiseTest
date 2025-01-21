@@ -10,11 +10,12 @@ public sealed class CurveRenderer : MonoBehaviour
 {
     #region Public properties
 
-    public enum Method { Perlin1D, Gradient360 }
+    [field:SerializeField] public NoiseGen.Method Method
+      { get; set; } = NoiseGen.Method.Perlin;
 
-    [field:SerializeField] public Method NoiseType { get; set; } = Method.Perlin1D;
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
+    [field:SerializeField] public int Octaves { get; set; } = 1;
 
     #endregion
 
@@ -28,12 +29,6 @@ public sealed class CurveRenderer : MonoBehaviour
 
     (NativeArray<int> i, NativeArray<float3> p) _array;
     Mesh _mesh;
-
-    float GetNoiseAt(float x)
-      => NoiseType switch
-         { Method.Perlin1D => Perlin1D.GetAt(x),
-           Method.Gradient360 => Gradient360.GetAt(x),
-           _ => 0 };
 
     void UpdateMesh()
     {
@@ -54,7 +49,7 @@ public sealed class CurveRenderer : MonoBehaviour
         for (var i = 0; i < Resolution; i++)
         {
             var x = (float)i / Resolution - 0.5f;
-            var y = GetNoiseAt((x + 0.5f) * Frequency);
+            var y = NoiseGen.Fractal(Method, (x + 0.5f) * Frequency, Octaves);
             _array.i[i] = i;
             _array.p[i] = math.float3(x, y, 0);
         }

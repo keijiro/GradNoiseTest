@@ -10,11 +10,12 @@ public sealed class GradientRenderer : MonoBehaviour
 {
     #region Public properties
 
-    public enum Method { Perlin1D, Gradient360 }
+    [field:SerializeField] public NoiseGen.Method Method
+      { get; set; } = NoiseGen.Method.Perlin;
 
-    [field:SerializeField] public Method NoiseType { get; set; } = Method.Perlin1D;
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
+    [field:SerializeField] public int Octaves { get; set; } = 1;
 
     #endregion
 
@@ -31,12 +32,6 @@ public sealed class GradientRenderer : MonoBehaviour
     Texture2D _texture;
     Material _material;
 
-    float GetNoiseAt(float p)
-      => NoiseType switch
-         { Method.Perlin1D => Perlin1D.GetAt(p),
-           Method.Gradient360 => Gradient360.GetAt(p),
-           _ => 0 };
-
     void UpdateTexture()
     {
         if (!_array.IsCreated || _array.Length != Resolution)
@@ -50,8 +45,8 @@ public sealed class GradientRenderer : MonoBehaviour
         for (var i = 0; i < Resolution; i++)
         {
             var x = (float)i / Resolution - 0.5f;
-            var y = GetNoiseAt((x + 0.5f) * Frequency);
-            _array[i] = (byte)(255 * (y + 1) / 2);
+            var y = NoiseGen.Fractal(Method, (x + 0.5f) * Frequency, Octaves);
+            _array[i] = (byte)(255 * math.saturate((y + 1) / 2));
         }
 
         if (_texture == null || _texture.width != Resolution)
