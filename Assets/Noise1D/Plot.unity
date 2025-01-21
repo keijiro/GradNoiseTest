@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <NoiseType>k__BackingField: 0
   <Resolution>k__BackingField: 1024
-  <Frequency>k__BackingField: 40
+  <Frequency>k__BackingField: 20
   <Octaves>k__BackingField: 4
   <Amplitude>k__BackingField: 0.71
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <NoiseType>k__BackingField: 1
   <Resolution>k__BackingField: 4096
-  <Frequency>k__BackingField: 40
+  <Frequency>k__BackingField: 20
   <Octaves>k__BackingField: 4
   <Amplitude>k__BackingField: 1
   _material: {fileID: -876546973899608171, guid: cbe1c49e60d224e81bdaec16e2f1afd7, type: 3}

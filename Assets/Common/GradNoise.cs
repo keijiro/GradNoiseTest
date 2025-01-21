@@ -26,10 +26,10 @@ public static class GradNoise
     }
 
     static float Grad(int i)
-      => math.sin(mathex.rand01((uint)i) * math.PI * 2);
+      => mathex.fake_sin(mathex.rand01((uint)i) * 2 - 1);
 
     static float2 Grad(int2 i2)
-      => mathex.sincos(mathex.rand01(Hash(i2)) * math.PI * 2);
+      => mathex.fake_sincos(mathex.rand01(Hash(i2)) * 2 - 1);
 
     static uint Hash(int2 i2)
       => (uint)i2.x | ((uint)i2.y << 16);
