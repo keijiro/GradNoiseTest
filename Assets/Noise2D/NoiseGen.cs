@@ -9,7 +9,7 @@ public static class NoiseGen
 
     public static float Single(Method method, float2 pos)
       => method switch 
-           { Method.Perlin => ClassicPerlin.GetAt(pos),
+           { Method.Perlin => Perlin2D.GetAt(pos),
              Method.Grad360 => Gradient360.GetAt(pos),
              _ => 0 };
 
