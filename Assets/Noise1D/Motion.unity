@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f4665860a2041ed9b20860fe95eb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 0
+  <NoiseType>k__BackingField: 0
   <Frequency>k__BackingField: 1
   <Octaves>k__BackingField: 4
   <Amplitude>k__BackingField: 0.71
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179914107}
   m_Layer: 0
-  m_Name: Sine
+  m_Name: Grad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f4665860a2041ed9b20860fe95eb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 1
+  <NoiseType>k__BackingField: 1
   <Frequency>k__BackingField: 1
   <Octaves>k__BackingField: 4
   <Amplitude>k__BackingField: 1

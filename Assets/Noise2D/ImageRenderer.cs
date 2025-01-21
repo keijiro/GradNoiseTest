@@ -3,16 +3,14 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Noise2D {
+namespace NoiseTest {
 
 [ExecuteInEditMode]
 public sealed class ImageRenderer : MonoBehaviour
 {
     #region Public properties
 
-    [field:SerializeField] public NoiseGen.Method Method
-      { get; set; } = NoiseGen.Method.Perlin;
-
+    [field:SerializeField] public NoiseType NoiseType { get; set; }
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
     [field:SerializeField] public int Octaves { get; set; } = 1;
@@ -49,7 +47,7 @@ public sealed class ImageRenderer : MonoBehaviour
             for (var xi = 0; xi < Resolution; xi++, offs++)
             {
                 var x = Frequency * xi / Resolution;
-                var val = NoiseGen.Fractal(Method, math.float2(x, y), Octaves);
+                var val = NoiseGen.Fractal(NoiseType, math.float2(x, y), Octaves);
                 _array[offs] = (byte)(255 * math.saturate((val * Amplitude + 1) / 2));
             }
         }
@@ -103,4 +101,4 @@ public sealed class ImageRenderer : MonoBehaviour
     #endregion
 }
 
-} // namespace Noise2D
+} // namespace NoiseTest

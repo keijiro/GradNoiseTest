@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 93645356}
   - component: {fileID: 93645355}
   m_Layer: 0
-  m_Name: Gradient 360
+  m_Name: Grad Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968e2eb43043f40008591e91534825c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 1
+  <NoiseType>k__BackingField: 1
   <Resolution>k__BackingField: 512
   <Frequency>k__BackingField: 10
   <Octaves>k__BackingField: 4
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 655248494}
   - component: {fileID: 655248495}
   m_Layer: 0
-  m_Name: Classic Perlin
+  m_Name: Perlin 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968e2eb43043f40008591e91534825c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 0
+  <NoiseType>k__BackingField: 0
   <Resolution>k__BackingField: 512
   <Frequency>k__BackingField: 10
   <Octaves>k__BackingField: 4

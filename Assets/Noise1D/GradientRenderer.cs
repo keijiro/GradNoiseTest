@@ -3,16 +3,14 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Noise1D {
+namespace NoiseTest {
 
 [ExecuteInEditMode]
 public sealed class GradientRenderer : MonoBehaviour
 {
     #region Public properties
 
-    [field:SerializeField] public NoiseGen.Method Method
-      { get; set; } = NoiseGen.Method.Perlin;
-
+    [field:SerializeField] public NoiseType NoiseType { get; set; }
     [field:SerializeField] public int Resolution { get; set; } = 1024;
     [field:SerializeField] public float Frequency { get; set; } = 10;
     [field:SerializeField] public int Octaves { get; set; } = 1;
@@ -46,7 +44,7 @@ public sealed class GradientRenderer : MonoBehaviour
         for (var i = 0; i < Resolution; i++)
         {
             var x = (float)i / Resolution - 0.5f;
-            var y = NoiseGen.Fractal(Method, (x + 0.5f) * Frequency, Octaves);
+            var y = NoiseGen.Fractal(NoiseType, (x + 0.5f) * Frequency, Octaves);
             _array[i] = (byte)(255 * math.saturate((y * Amplitude + 1) / 2));
         }
 
@@ -99,4 +97,4 @@ public sealed class GradientRenderer : MonoBehaviour
     #endregion
 }
 
-} // namespace Noise2D
+} // namespace NoiseTest

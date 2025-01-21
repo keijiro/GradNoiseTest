@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277a0baf5d274818832d4aaa2a624f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 0
+  <NoiseType>k__BackingField: 0
   <Resolution>k__BackingField: 1024
   <Frequency>k__BackingField: 40
   <Octaves>k__BackingField: 4
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 392473929}
   - component: {fileID: 392473930}
   m_Layer: 0
-  m_Name: Gradient (Gradient 360)
+  m_Name: Gradient (Grad)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aad00d71bacb4ce8bd6424ad94c2868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 1
+  <NoiseType>k__BackingField: 1
   <Resolution>k__BackingField: 1024
   <Frequency>k__BackingField: 20
   <Octaves>k__BackingField: 4
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aad00d71bacb4ce8bd6424ad94c2868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 0
+  <NoiseType>k__BackingField: 0
   <Resolution>k__BackingField: 1024
   <Frequency>k__BackingField: 20
   <Octaves>k__BackingField: 4
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 1934760044}
   - component: {fileID: 1934760043}
   m_Layer: 0
-  m_Name: Curve (Gradient 360)
+  m_Name: Curve (Grad)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277a0baf5d274818832d4aaa2a624f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Method>k__BackingField: 1
+  <NoiseType>k__BackingField: 1
   <Resolution>k__BackingField: 4096
   <Frequency>k__BackingField: 40
   <Octaves>k__BackingField: 4
