@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Debug = UnityEngine.Debug;
 
 namespace NoiseTest {
 
@@ -41,6 +43,9 @@ public sealed class ImageRenderer : MonoBehaviour
                NativeArrayOptions.UninitializedMemory);
         }
 
+        var sw = new Stopwatch();
+        sw.Start();
+
         for (var (yi, offs) = (0, 0); yi < Resolution; yi++)
         {
             var y = Frequency * yi / Resolution;
@@ -51,6 +56,9 @@ public sealed class ImageRenderer : MonoBehaviour
                 _array[offs] = (byte)(255 * math.saturate((val * Amplitude + 1) / 2));
             }
         }
+
+        sw.Stop();
+        Debug.Log($"{name}: {sw.Elapsed.TotalMilliseconds}");
 
         if (_texture == null || _texture.width != Resolution)
         {
